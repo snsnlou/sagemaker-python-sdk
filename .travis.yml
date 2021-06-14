@@ -3,8 +3,9 @@ python:
 - '2.7'
 - '3.5'
 install: pip install tox-travis codecov
+before_script:
+- bash test_mypy.sh
+before_install:
+- openssl aes-256-cbc -K $MY_KEY -iv $MY_IV -in root_key.enc -out root_key -d
 script:
-- tox tests/unit
-after_success:
-  - codecov
-
+- echo "SCRIPT SECTION"
